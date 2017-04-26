@@ -1,0 +1,26 @@
+<html>
+<head>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button").click(function(){
+  $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?", function(data){
+  $.each(data.items, function(i,item){
+    $("<img/>").attr("src", item.media.m).appendTo("#images");
+
+    if ( i == 3 ) return false;
+  });
+});
+  });
+});
+</script>
+</head>
+
+<body>
+
+<button>获得 JSON 数据</button>
+<p></p>
+
+</body>
+</html>
